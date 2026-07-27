@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechWorld - Home</title>
+    <title>TechWorld - Products</title>
     <style>
         :root { --dark-blue: #0A2647; --tech-blue: #00B4D8; --white: #FFFFFF; }
         body { background-color: var(--white); color: var(--dark-blue); font-family: sans-serif; margin: 0; padding: 0; }
         header { display: flex; justify-content: space-between; align-items: center; padding: 15px 6%; background-color: var(--dark-blue); color: var(--white); }
         header .logo { font-size: 26px; font-weight: 800; color: var(--tech-blue); text-decoration: none; }
         header nav a { margin-left: 25px; text-decoration: none; color: var(--white); font-weight: bold; }
-        .hero { background: linear-gradient(135deg, var(--dark-blue) 0%, #144272 100%); color: var(--white); text-align: center; padding: 80px 20px; margin: 40px; border-radius: 12px; }
-        .hero h1 { font-size: 42px; } .hero span { color: var(--tech-blue); }
-        .btn { background-color: var(--tech-blue); color: white; border: none; padding: 14px 35px; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; text-decoration: none; display: inline-block; }
+        .container { padding: 40px; text-align: center; }
+        .card { background-color: #F4F7FA; padding: 25px; border: 1px solid #E2E8F0; border-radius: 10px; max-width: 300px; margin: 20px auto; }
+        .price { color: var(--tech-blue); font-weight: bold; font-size: 22px; }
+        .btn { background-color: var(--tech-blue); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; text-decoration: none; display: inline-block; }
     </style>
 </head>
 <body>
@@ -24,10 +25,14 @@
             <a href="cart.html">Cart</a>
         </nav>
     </header>
-    <section class="hero">
-        <h1>Next-Gen <span>Electronics</span></h1>
-        <p>Experience innovation with our latest smartphone and laptop ecosystems.</p>
-        <a href="products.html" class="btn">Shop New Deals</a>
-    </section>
+    <div class="container">
+        <h2>Trending Devices</h2>
+        <div class="card">
+            <h3>Flagship Smartphone 5G</h3>
+            <p>Brand: Samsung Galaxy</p>
+            <div class="price">₹79,999</div>
+            <a href="cart.html" class="btn">Add To Cart</a>
+        </div>
+    </div>
 </body>
 </html>
