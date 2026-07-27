@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechWorld - Electronics & Gadgets</title>
+    <style>
+        /* TECHWORLD BRAND GUIDELINES */
+        :root {
+            --dark-blue: #0A2647;       /* Deep Tech Background/Text */
+            --tech-blue: #00B4D8;       /* High-Tech Accent Blue */
+            --white: #FFFFFF;
+            --gray-light: #F4F7FA;
+            --border-color: #E2E8F0;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark-blue);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Modern Tech Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 6%;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--tech-blue);
+            text-decoration: none;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        header nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        header nav a:hover {
+            color: var(--tech-blue);
+        }
+
+        /* Dynamic Single Page View Control */
+        .page-view { display: none; padding: 40px 6%; }
+        .page-view.active { display: block; }
+
+        /* Professional Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #144272 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 90px 20px;
+            margin: -40px -6% 40px -6%;
+        }
+
+        .hero h1 { font-size: 46px; margin-bottom: 15px; font-weight: 700; }
+        .hero span { color: var(--tech-blue); }
+        .hero p { font-size: 18px; margin-bottom: 30px; color: #cbd5e1; }
+
+        .btn {
+            background-color: var(--tech-blue);
+            color: var(--white);
+            border: none;
+            padding: 14px 35px;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #0096B4;
+            transform: translateY(-2px);
+        }
+
+        /* Search Bar layout */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Product Cards & Grid Layouts */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(10,38,71,0.03);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(10,38,71,0.08);
+            border-color: var(--tech-blue);
+        }
+
+        .price { color: var(--tech-blue); font-weight: 700; font-size: 22px; margin: 12px 0; }
+        .stock-tag { background: #E1FDF4; color: #10B981; padding: 4px 10px; font-size: 12px; font-weight: bold; border-radius: 20px; display: inline-block; }
+
+        /* Form Controls */
+        input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid var(--border-color); border-radius: 6px; box-sizing: border-box; font-size: 15px; }
+        input:focus, select:focus { outline: none; border-color: var(--tech-blue); }
+    </style>
+</head>
+<body>
+
+    <!-- TechWorld Navigation Bar -->
+    <header>
+        <a onclick="showPage('home')" class="logo">💻 TECHWORLD</a>
+        <nav>
+            <a onclick="showPage('home')">Home</a>
+            <a onclick="showPage('shop')">Products</a>
+            <a onclick="showPage('cart')">Cart</a>
+            <a onclick="showPage('checkout')">Checkout</a>
+            <a onclick="showPage('about')">About Us</a>
+        </nav>
+    </header>
+
+    <!-- HOME VIEW -->
+    <div id="home" class="page-view active">
+        <section class="hero">
+            <h1>Next-Gen <span>Electronics & Gadgets</span></h1>
+            <p>Experience innovation with our latest smartphones, laptops, and premium audio ecosystems.</p>
+            <button class="btn" onclick="showPage('shop')">Shop New Deals</button>
+        </section>
+        
+        <h2 style="text-align:center; margin-bottom:30px; text-transform:uppercase; letter-spacing:1px;">Core Categories</h2>
+        <div class="grid-container">
+            <div class="product-card" onclick="showPage('shop')"><h3>📱 Smartphones</h3><p>iPhone, Galaxy & Pixel Ecosystems</p></div>
+            <div class="product-card" onclick="showPage('shop')"><h3>💻 Laptops & Tablets</h3><p>MacBook, Dell XPS & Surface Pro</p></div>
+            <div class="product-card" onclick="showPage('shop')"><h3>🎧 Audio & Wearables</h3><p>Headphones, Earbuds & Smartwatches</p></div>
+        </div>
+    </div>
+
+    <!-- PRODUCT LISTING VIEW -->
+    <div id="shop" class="page-view">
+        <h2 style="text-align:center; text-transform:uppercase; margin-bottom:10px;">Explore Gadgets</h2>
+        <div class="search-container">
+            <input type="text" placeholder="Search product catalogs (e.g., iPhone, MacBook)..." onkeyup="alert('Search simulated! All matching catalog filters applied.')">
+        </div>
+        
+        <div class="grid-container">
+            <div class="product-card">
+                <span class="stock-tag">In Stock</span>
+                <h3>Flagship Smartphone 5G</h3>
+                <p>Brand: Samsung Galaxy</p>
+                <div class="price">₹79,999</div>
+                <button class="btn" style="width:100%;" onclick="alert('Added to Cart!'); showPage('cart')">Add To Cart</button>
+            </div>
+            <div class="product-card">
+                <span class="stock-tag">In Stock</span>
+                <h3>Pro Ultra Laptop M3</h3>
+                <p>Brand: MacBook Ecosystem</p>
+                <div class="price">₹1,24,900</div>
+                <button class="btn" style="width:100%;" onclick="alert('Added to Cart!'); showPage('cart')">Add To Cart</button>
+            </div>
+            <div class="product-card">
+                <span class="stock-tag">In Stock</span>
+                <h3>Wireless ANC Headphones</h3>
+                <p>Brand: Premium Audio</p>
+                <div class="price">₹14,999</div>
+                <button class="btn" style="width:100%;" onclick="alert('Added to Cart!'); showPage('cart')">Add To Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHOPPING CART VIEW -->
+    <div id="cart" class="page-view">
+        <div class="product-card" style="max-width:650px; margin:0 auto; background:white; text-align:left;">
+            <h2 style="text-align:center; border-bottom:2px solid var(--gray-light); padding-bottom:15px;">Your Shopping Cart</h2>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-color); padding:15px 0;">
+                <span>Flagship Smartphone 5G (x1)</span><strong>₹79,999</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-color); padding:15px 0;">
+                <span>Wireless ANC Headphones (x1)</span><strong>₹14,999</strong>
+            </div>
+            <h3 style="display:flex; justify-content:space-between; margin-top:25px; padding-top:15px; border-top:2px dashed var(--border-color);">
+                <span>Total Cart Value:</span><span style="color:var(--tech-blue);">₹94,998</span>
+            </h3>
+            <button class="btn" style="width:100%; margin-top:15px;" onclick="showPage('checkout')">Proceed To Checkout</button>
+        </div>
+    </div>
+
+    <!-- SECURE CHECKOUT VIEW -->
+    <div id="checkout" class="page-view">
+        <div class="product-card" style="max-width:550px; margin:0 auto; background:white;">
+            <h2>Secure Checkout Gateway</h2>
+            <form action="#" onsubmit="alert('Order Successfully Configured! Your tech tracking ID is set to active.'); showPage('home'); return false;">
+                <input type="text" placeholder="Full Delivery Address Fields" required>
+                <input type="tel" placeholder="10-Digit Secure Mobile Number" required>
+                <select required>
+                    <option value="">Select Secure Payment Gateway</option>
+                    <option value="upi">UPI Gateway Integration (Simulation)</option>
+                    <option value="cod">Cash On Delivery (COD)</option>
+                </select>
+                <button type="submit" class="btn" style="width:100%; margin-top:15px;">Finalize Tech Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ABOUT & CONTACT VIEW -->
+    <div id="about" class="page-view">
+        <div class="product-card" style="max-width:750px; margin:0 auto; text-align:left; background:white;">
+            <h2>About TechWorld Systems</h2>
